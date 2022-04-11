@@ -64,6 +64,9 @@
 
                     <span class="tipo_campo">E-mail:</span>
                     <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                    
+                    <span class="tipo_campo">CPF:</span>
+                    <input id="cpf_input" type="text" placeholder="CPF">
 
                     <span class="tipo_campo">Senha:</span>
                     <input id="senha_input" type="password" placeholder="******">
@@ -104,10 +107,11 @@
 
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
+        var cpfVar = cpf_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
@@ -147,6 +151,7 @@
             body: JSON.stringify({
                 nomeServer: nomeVar,
                 emailServer: emailVar,
+                cpfServer: cpfVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
